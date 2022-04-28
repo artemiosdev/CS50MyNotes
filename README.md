@@ -1241,5 +1241,65 @@ int factorial(int n)
 
 Важно понять, что она как бы «раскручивается» до базиса рекурсии, и затем вновь «закручивается». То есть, если нам нужно определить 5!, считайте, что 4! у нас уже есть.
 
+Пример, введения третьей переменной `tmp` или `XOR` для обмена значениями между двумя переменными `a` и `b`
+```C
+void swap (int a, int b)
+{
+  int tmp = a;
+  a = b;
+  b = tmp;
+}
+
+void swap (int a, int b)
+{
+  a = a ^ b;
+  b = a ^ b;
+  a = a ^ b;
+}
+```
+
+Есть важное замечание по сравнению значений.
+
+```C
+#include <stdio.h>
+
+void swap(int a, int b);
+int main(void)
+{
+    int x = 1;
+    int y = 2;
+
+    printf("x is %i\n", x);
+    printf("y is %i\n", y);
+    printf("Swapping...\n");
+    swap(x, y);
+    printf("Swapped!\n");
+    printf("x is %i\n", x);
+    printf("y is %i\n", y);
+}
+
+//Fails to swap arguments' values.
+void swap(int a, int b)
+{
+    int tmp = a;
+    a = b;
+    b = tmp;
+}
+```
+
+Result:
+
+```bash
+x is 1
+y is 2
+Swapping...
+Swapped!
+x is 1
+y is 2
+```
+Значения не поменялись, хотя программа написана правильно, все дело в том что переменная `tmp` и `a` `b` хранят значения записанные в памяти в другие адреса нежели `x` `y`, и сравнивая эти адреса ячеек компилятор находит их разными и это действительно так, чтобы было сравнения по значениям, а не по адресам ячеек нужно применять указатели `*` `&`. О них будет идти речь ниже. Подробная информация есть в главе "Адреса и указатели" в учебнике [The C programming Language](https://github.com/artemiosdev/C_Kernighan_and_Ritchie) 
+
+
+
 ---
 
