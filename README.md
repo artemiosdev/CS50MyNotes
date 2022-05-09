@@ -2671,3 +2671,10 @@ SELECT name FROM data
 WHERE year <17;
 ```
 Emma
+
+***[MySQL](https://ru.wikipedia.org/wiki/MySQL)*** — свободная реляционная система управления базами данных.
+
+---
+### JavaScript, Ajax
+
+***[JavaScript Guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide)***

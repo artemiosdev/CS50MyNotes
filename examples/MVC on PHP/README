@@ -1,0 +1,13 @@
+MVC on PHP
+This is example of a simple web page with links to lectures from CS50 lessons.
+
+html/
+   index.php - home page for course
+   lectures.php - a list of lectures
+   week0.php - a week
+   week1.php - a week
+includes/
+   helpers.php - helper functions
+templates/
+   footer.php - pages' footer
+   header.php - pages' header
